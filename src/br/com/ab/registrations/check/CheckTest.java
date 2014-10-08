@@ -19,7 +19,7 @@ public class CheckTest {
 	
 	@Test
 	public void shouldNotCheckDuplicatesWithoutSource() {
-		expected.expect(IllegalArgumentException.class);
+		expected.expect(IllegalStateException.class);
 		expected.expectMessage("Source and target are required");
 		Check check = new Check(new ArrayList<Attendee>(), new ArrayList<Attendee>());
 		check.gimmeDuplicates();
@@ -27,7 +27,7 @@ public class CheckTest {
 	
 	@Test
 	public void shouldNotCheckDuplicatesWithoutTarget() {
-		expected.expect(IllegalArgumentException.class);
+		expected.expect(IllegalStateException.class);
 		expected.expectMessage("Source and target are required");
 		Attendee attendee = new Attendee("foo", "bar", "foo@bar.com.br");
 		List<Attendee> source = new ArrayList<Attendee>(Arrays.asList(attendee));
